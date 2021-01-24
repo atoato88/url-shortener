@@ -1,0 +1,13 @@
+version: '3'
+services:
+  url-shortener:
+    build: .
+    restart: always
+    command:
+    - "-port"
+    - "3000"
+    ports:
+    - "3334:3000"
+    volumes:
+    - ./data:/data
+
