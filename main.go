@@ -70,6 +70,7 @@ func handleRedirect(c *fiber.Ctx) error {
 	for _, e := range urls {
 		if e.Id == id {
 			log.Println(fmt.Sprintf("redirect to \"%s\" requested from %s", e.Url, c.IP()))
+			c.Set("Cache-Control", "no-store")
 			return c.Redirect(e.Url, 301)
 		}
 	}
